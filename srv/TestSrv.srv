@@ -1,0 +1,6 @@
+sensor_msgs/Image color
+sensor_msgs/Image depth
+---
+float32[] affordance_map
+int32 width
+int32 height
