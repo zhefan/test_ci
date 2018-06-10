@@ -85,7 +85,7 @@ before_install:
   - git checkout 944aaf0712f0f31b8a7f1eea7628a03c516589f6 # current one    
   - mkdir -p build && cd build
   - cmake ..
-  - make -j2
+  - make -j4
   - sudo make install
 
 # Create a catkin workspace with the package under integration.
