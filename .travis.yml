@@ -74,6 +74,9 @@ before_install:
   - sudo rosdep init
   - rosdep update
   # Install PCL dependencies
+  - sudo rm /var/lib/dpkg/lock
+  - sudo dpkg --configure -a
+  - sudo apt-get update -qq
   - sudo apt install -y libeigen3-dev libflann-dev libvtk5-* libboost-all-dev libqhull-dev
   # Install PCL    
   - mkdir -p $HOME/software && cd $HOME/software
