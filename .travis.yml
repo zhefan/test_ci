@@ -73,8 +73,17 @@ before_install:
   # Prepare rosdep to install dependencies.
   - sudo rosdep init
   - rosdep update
-  # Install cuda
-
+  # Install PCL dependencies
+  - sudo apt install -y libeigen3-dev libflann-dev libvtk5-* libboost-all-dev libqhull-dev
+  # Install PCL    
+  - mkdir -p $HOME/software && cd $HOME/software
+  - git clone https://github.com/PointCloudLibrary/pcl.git 
+  - cd pcl
+  - git checkout 944aaf0712f0f31b8a7f1eea7628a03c516589f6 # current one    
+  - mkdir -p build && cd build
+  - cmake ..
+  - make -j
+  - sudo make install
 
 # Create a catkin workspace with the package under integration.
 install:
